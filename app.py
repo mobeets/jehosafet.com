@@ -12,6 +12,7 @@ from apps import elsewhere
 FULL_ICON_URL = 'http://www.jehosafet.com/static/elsewhere-icons'
 CONTACT = 'Contact me <a href="https://twitter.com/jehosafet" target="_blank">@jehosafet</a>.'
 HEROKU_URL = lambda key: "http://{0}.herokuapp.com".format(key)
+GITHUB_URL = lambda key: "http://a.jehosafet.com/{0}".format(key)
 
 class Root(object):
     @cherrypy.expose
@@ -36,8 +37,20 @@ class Root(object):
         raise cherrypy.HTTPRedirect(HEROKU_URL("blog-word-counts"))
 
     @cherrypy.expose
+    def blackbox(self, *data):
+        raise cherrypy.HTTPRedirect(HEROKU_URL("blackbox-theatre"))
+
+    @cherrypy.expose
     def morse_news(self, *data):
         raise cherrypy.HTTPRedirect(HEROKU_URL("morse-news"))
+
+    @cherrypy.expose
+    def cookies(self, *data):
+        raise cherrypy.HTTPRedirect(GITHUB_URL("cookies"))
+
+    @cherrypy.expose
+    def hive(self, *data):
+        raise cherrypy.HTTPRedirect(GITHUB_URL("hive"))
 
     @cherrypy.expose
     def unfulfilled(self, *tmp):
@@ -49,11 +62,6 @@ class Root(object):
         return tmp.render(title='colophon', contact=CONTACT, icon_key='jehosafet', full_icon_url=FULL_ICON_URL)
 
     @cherrypy.expose
-    def cookies(self, *data):
-        tmp = lookup.get_template('cookie_helper.html')
-        return tmp.render(title='Chocolate chip cookies', icon_key='cookie-helper', full_icon_url=FULL_ICON_URL)
-
-    @cherrypy.expose
     def list_2013_misc(self, *data):
         tmp = lookup.get_template('2013-list-misc.html')
         return tmp.render(title='2013: Seen, Tried, or Tasted', icon_key='2013-list-misc', full_icon_url=FULL_ICON_URL)
@@ -62,11 +70,6 @@ class Root(object):
     def nfl_kickoffs(self, *data):
         tmp = lookup.get_template('nfl-kickoffs.html')
         return tmp.render(title='Kickoffs and returns from 2002 - 2012', icon_key='nfl-kickoffs', full_icon_url=FULL_ICON_URL)
-
-    @cherrypy.expose
-    def hive(self, *data):
-        tmp = lookup.get_template('hive.html')
-        return tmp.render(title='Hive', icon_key='hive', full_icon_url=FULL_ICON_URL)
 
     @cherrypy.expose
     def either_way(self, *data):
