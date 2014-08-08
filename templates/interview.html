@@ -1,0 +1,46 @@
+<%inherit file="/base.html"/>
+<%block name="header">
+    <link rel=StyleSheet href="/static/interview.css" type="text/css"/>
+</%block>
+
+<div id="interview">
+    <div id="interview_name">
+       <a href="/unfulfilled">${title}</a> - ${subject}
+    </div>
+    % if drawing:
+        <img id="drawing" src="${drawing}"/>
+    % endif
+    <div id="nut_graph">
+        % for x in intro:
+            <p>${x}</p>
+        % endfor
+    </div>
+
+    % for name, statements in sections:
+        <div id="section_name">
+            ${name}
+        </div>
+        % for person, statement in statements:
+            <div id="statement">
+                <b>${person}</b> ${statement}
+            </div>
+        % endfor
+    % endfor
+
+    &#9641;
+    <div id="locations">
+        <table>
+            % for i, location in enumerate(locations):
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${location.dt}</td>
+                    <td>${location.name}</td>
+                </tr>
+            % endfor
+        </table>
+    </div>
+    <hr>
+    <div id="end_graph">
+        ${outro}
+    </div>
+</div>

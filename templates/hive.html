@@ -1,0 +1,62 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/base.html"/>
+<%block name="header">
+    <meta name="description" content="Play the board game Hive online with two players on the same computer.">
+    <link rel=StyleSheet href="/static/css/hive.css" type="text/css">
+</%block>
+
+
+<div id="panel">
+    <span id="title">Hive</span>
+    <span id="rules">
+        (<a href="http://www.gen42.com/downloads/rules/Hive_Rules.pdf" target="_blank">Rules</a> /
+        <a href="https://github.com/mobeets/hive-game" target="_blank">Info</a>)
+    </span>
+    
+    <hr>
+    <div id="controls">
+        <a href="#" id="player" class="player-switch">Player 2</a>
+        <img id="undo-button" alt="Remove selected" class="button" src="/media/hive/ex.png">
+        <img id="trash-button" alt="Exit game" class="button" src="/media/hive/trash.png">
+    </div>
+    <hr>
+    <div id="piece-bar">
+        <div id="beetle" class="piece-spot">
+            <img class="pieces" src="/media/hive/beetle.png">
+        </div>
+        <div id="ant" class="piece-spot">
+            <img class="pieces" src="/media/hive/ant.png">
+        </div>
+        <div id="grasshopper" class="piece-spot">
+            <img class="pieces" src="/media/hive/grasshopper.png">
+        </div>
+        <div id="spider" class="piece-spot">
+            <img class="pieces" src="/media/hive/spider.png">
+        </div>
+        <div id="bee" class="piece-spot">
+            <img class="pieces" src="/media/hive/bee.png">
+        </div>
+        <div id="mosquito" class="piece-spot">
+            <img class="pieces" src="/media/hive/mosquito.png">
+        </div>
+        <div id="ladybug" class="piece-spot">
+            <img class="pieces" src="/media/hive/ladybug.png">
+        </div>
+        <div id="pillbug" class="piece-spot">
+            <img class="pieces" src="/media/hive/pillbug.png">
+        </div>
+    </div>
+</div>
+<div id="charts">
+    <div class="chart-box">
+        <span class="chart-title"></span>
+        <div id="chart" class="chart"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/d3.v3.min.js"></script>
+<script type="text/javascript" src="/static/js/d3.hexbin.v0.min.js"></script>
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/hive.js"></script>
+
+

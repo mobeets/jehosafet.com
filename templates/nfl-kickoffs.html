@@ -1,0 +1,120 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/base.html"/>
+<%block name="header">
+        <link rel="stylesheet" type="text/css" href="/static/css/nfl-kickoffs.css"/>
+        <script type="text/javascript" src="/static/js/nfl-kickoffs.js"></script>
+</%block>
+
+<div id="shell">
+    <h1>Kickoffs and returns from 2002 - 2012</h1>
+    <div class="talking">
+        <h3>Q: Goal line or touchback?</h3>
+        <p>
+            Pretend you're an NFL kicker about to take a kickoff. Should you always aim for a touchback, kicking the ball as far past the endzone as you can manage? Or should you try to kick it just before the goal line, forcing the receiver to attempt an return?
+        </p>
+        <p>
+            I tried to get at this question empirically, using as data every kickoff and its respective return in all games of the 2002 - 2012 seasons. (This includes the post-seasons as well; see below for the source data.) I've removed onside kicks, kicks that went out of bounds, and kicks that the receiver took as touchbacks, so that the resulting dataset can be thought of as all "normal" kickoffs that the receiver returned.
+        </p>
+        <h3>20,703 normal kickoff returns</h3>
+        <p>
+            A 2D histogram of this data can be seen below. The x-axis is the yard line the ball was kicked to (i.e. the yard the kick was caught at), and the y-axis is the yard the receiver returned the kick to (i.e the yard the receiver was tackled at).
+        </p>
+        <p>
+            The color of each square represents the number of times the respective kickoff return occurred in the data. For example, the black square at (x=98, y=76) tells us that kicks caught at the receiving team's 2-yard line (i.e. 98 yards from the goal) and returned to the receiving team's 24-yard line happened relatively often.
+        </p>
+        <p>
+            I've also added a few colored layers to the graph, which you can toggle on/off with the controls at the side, to make this graph easier to read.
+        </p>
+    </div>
+    <div id="first">
+        <span class="layer im-overlay first-graph-title">All kickoffs and returns (2002 - 2012)</span>
+        <img src="/media/nfl-kickoffs/base.png" class="layer im-base">
+        <img src="/media/nfl-kickoffs/annotations.png" id="im-1" class="layer im-overlay">
+        <img src="/media/nfl-kickoffs/lt-touchback.png" id="im-2" class="layer im-overlay">
+        <img src="/media/nfl-kickoffs/neg-return.png" id="im-3" class="layer im-overlay">
+        <img src="/media/nfl-kickoffs/start-endzone.png" id="im-4" class="layer im-overlay">
+        <img src="/media/nfl-kickoffs/touchdown.png" id="im-5" class="layer im-overlay">
+        <div class="layer im-overlay axis x-axis"></div>
+        <div class="layer im-overlay axis y-axis"></div>
+        <div class="layer im-overlay x-axis-label">Yard kicked to</div>
+        <div class="layer im-overlay y-axis-label">Yard returned to</div>
+    </div>
+    <div id="controls">
+        <form>
+            <input type="checkbox" value="im-4" class="toggle" />Kicked to endzone<br>
+            <input type="checkbox" value="im-2" class="toggle turned-on" />Returned before 20 yd line<br>
+            <input type="checkbox" value="im-3" class="toggle" />Returned for loss<br>
+            <input type="checkbox" value="im-5" class="toggle" />Returned for touchdown<br>
+            <br>
+            <input type="checkbox" value="im-1" class="toggle" />Annotations
+        </form>
+    </div>
+    <div id="legend">
+        <img src="/media/nfl-kickoffs/legend.png">
+        <span class="axis legend-axis"></span>
+    </div>
+    <div class="talking">
+        <h3>A: <i>If you're a kicker, aim for a touchback every single time.</i></h3>
+        <p>
+            This graph makes the answer fairly clear: Judging by the number of dark squares <i>not</i> covered by the "Returned before 20 yd line" layer, most receivers take their kickoff return further than the 20. As a kicker, then, you'd always prefer them to take a touchback than to attempt a return.
+        </p>
+        <p>
+            That's kind of obvious though, isn't it? If you only kick it to the receiving team's 30-yard line, of course the return will be better than a touchback! In truth, the graph above may be interesting, but it doesn't answer the initial question that thoughtfully at all.
+        </p>
+        <h3>A better sample: kickoffs to the endzone</h3>
+        <p>
+            The kickoffs to the endzone (highlighted by the "Kicked to endzone" layer in the graph above) might be a better place to focus. Of all the kickoffs to the endzone, how far did the receivers usually make it down the field when they didn't take the touchback? It's hard to tell from the above graph, but it looks like most of the returns made it beyond the 20-yard line. If this is true, it would seem that receivers are making the judgment call of touchback-vs-return fairly well; on average, they'll do better than a touchback.
+        </p>
+        <p> 
+            The below plot, showing the outcomes of all kickoffs to the endzone that the receiver returned <a href="#1" class="footnote"><sup>[1]</sup></a>, tells a simpler story: The higher the bar, the more often the receiver made it to that yard line.
+        </p>
+    </div>
+    <span class="second-graph-title">Kickoff returns from the endzone (2002 - 2012)</span>
+    <div id="second">
+        <img src="/media/nfl-kickoffs/returns-from-endzone.png" class="layer im-base">
+        <div class="layer im-overlay x-axis-label-2">Yard returned to</div>
+        <div class="layer im-overlay y-axis-label-2">Count</div>
+    </div>
+    <div class="talking">
+        <p>
+            From this plot it looks like the majority of kicks received in the endzone were returned to exactly the 20-yard line. However, there were more <i>total</i> kicks returned past the 20-yard line than before or exactly to it. The average return, as opposed to the mode return, was to the 24-yard line&mdash;a good four yards more than the receiver would have gotten had he taken the touchback. <a href="#2" class="footnote"><sup>[2]</sup></a>
+        </p>
+        <p>
+            But now this is view is <i>too</i> simplified, as it hides any variation that might exist between returns on kickoffs right to the goal line and, say, those for kicks to the very back of the endzone.
+        </p>
+        <p>
+            The final graph, below, shows the chances that a return won't make it past the 20-yard line, given the yard at which the kickoff was caught.
+        </p>
+    </div>
+    <span class="third-graph-title">Kickoff returns worse than a touchback (2002 - 2012)</span>
+    <div id="third">
+        <img src="/media/nfl-kickoffs/worse-than-touchback.png" class="layer im-base">
+        <div class="layer im-overlay x-axis-label-3">Yard kicked to</div>
+        <div class="layer im-overlay y-axis-label-3">% of returns to &lt; 20 yd line</div>
+    </div>
+    <div class="talking">
+        <p>
+            There's definitely a strong upward trend in the kicker's favor, the further the kickoff goes. But keep in mind that the % of returns that were <i>better</i> than a touchback, the inverse of this graph, remains better than 50% regardless of which yard the kickoff goes to. Which brings us back, I think, to the same conclusion: If you're an NFL kicker, kick it as far as you can. You're hoping for a touchback.
+        </p>
+    </div>
+    <div class="talking endnotes">
+        <h3>DATA</h3>
+        <p>
+            Data for the above graphs is available <a href="/media/nfl-kickoffs/kick-returns_2002-2012.csv">here</a>.
+        </p>
+        <p>
+            Original NFL play data for the 2002-2012 seasons is available <a href="https://github.com/mobeets/nflplays">here</a>.
+        </p>
+        <hr>
+        <h3>FOOTNOTES</h3>
+        <p>
+            <a name="1"><span class="counter">[1]</span></a> Remember that the data in the plots above only considers kickoffs that the receiver <i>chose</i> to return. If the average endzone kickoff return in this data was to a location before the 20-yard line, we could potentially conclude that receivers were, on average, not taking enough touchbacks. In our case, however, it seems like receivers are doing a pretty good job of knowing when to return a kickoff caught in the endzone.
+        </p>
+        <p>
+            <a name="2"><span class="counter">[2]</span></a> Really though, since football is won by scoring points, this analysis of kickoff returns from the endzone should really consider the relative advantage (in terms of average points scored) of beginning a drive from the 24-yard line as opposed to the 20-yard line. Or even just the risks and gains of returning the ball versus taking a touchback. (If the receiver takes a return instead of a touchback, for example, he stands to score a touchdown but he also risks fumbling and losing possession.)
+        </p>
+        <p>
+            Unfortunately, the dataset of NFL plays that most people (including myself) have access to is relatively useless for anything involving points scored. But it was interesting, at least, to make it this far.
+        </p>
+    </div>
+</div>

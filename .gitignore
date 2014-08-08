@@ -1,0 +1,6 @@
+db
+venv
+media/tmp
+*.pyc
+.DS_Store
+.env

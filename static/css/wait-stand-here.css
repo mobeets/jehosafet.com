@@ -1,0 +1,61 @@
+#wrapper {
+    font-family: 'Inconsolata';
+    font-size: 16px;
+    width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+.page {
+    width: 600px;
+    border: 2px solid black;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+.frame {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+.text {
+    position: absolute;
+}
+
+#w-1 {
+    width: 35%;
+    bottom: 7%;
+    right: 3%;   
+}
+#w-2a {
+    width: 27%;
+    top: 2%;
+    left: 3%;   
+}
+#w-2b {
+    width: 27%;
+    top: 50%;
+    left: 42%;   
+}
+#w-2c {
+    width: 27%;
+    bottom: 12%;
+    left: 16%;   
+}
+#w-3 {
+    width: 60%;
+    top: 5%;
+    left: 10%;   
+}
+#w-4b {
+    width: 100%;
+    top: 15%;
+    left: 20%;   
+}
+#w-4a {
+    width: 100%;
+    left: 75%;
+    top: 3%;   
+}

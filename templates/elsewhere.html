@@ -1,0 +1,26 @@
+<%inherit file="/base.html"/>
+<%block name="header">
+    <link rel=StyleSheet href="/static/elsewhere-styles.css" type="text/css"/>
+    <script src="/static/elsewhere.js"></script>
+</%block>
+
+<ul id="els-filter">
+    <li class="current">ALL</li>
+% for categ in categs:
+    <li>${categ}</li>
+% endfor
+</ul>
+<div id="els-items">
+% for i, item in enumerate(items):
+    <div id="icon-${i+1}" class="icon-set els-${item['categ']}">
+        <a href="${item['url']}"></a>
+        <img src="/static/elsewhere-icons/${item['key']}.png" class="icon-img"/>
+        <span class="icon-description">${item['name']}</span>
+    </div>
+% endfor
+</div>
+
+<div id="contact">
+    <hr>
+    ${contact}
+</div>

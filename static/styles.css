@@ -1,0 +1,48 @@
+body {
+    background-color:#f9f5da;
+}
+#wrapper {
+    background-color: white;
+    top: 30px;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 60px;
+    /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
+    /*font-size: small;*/
+    font-family: 'Droid Serif', serif;
+    /*font-family: Garamond, Georgia, serif;*/
+    font-size: 95%;
+    /*font-family: 'Inconsolata', sans-serif;*/
+}
+
+#content {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 200px;
+    padding-right: 20px;
+}
+
+#header a, #footer a {
+    text-decoration: none;
+}
+#header, #footer {
+    clear: both;
+    margin-bottom: 10px;
+    background-color: #3CB371;
+}
+
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+a:active {
+    color: black;
+    text-decoration: underline;
+}

@@ -1,0 +1,153 @@
+## -*- coding: utf-8 -*-
+<%inherit file="/base.html"/>
+<%block name="header">
+    <link href='/static/either-way-styles.css' rel='stylesheet' type='text/css'>
+    <link href='/static/either-way-text-styles.css' rel='stylesheet' type='text/css'>
+
+    <!--  Curved text via http://tympanus.net/Development/Arctext/ -->
+    <script type="text/javascript" src="/static/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/jquery.arctext.js"></script>
+</%block>
+
+<h2>Either way, he thinks</h2>
+<br>
+<div id="frames">
+    <div class="page">
+        <img class="frame f2" src="/media/either-way/2i/skyline.png">
+        <img class="frame" src="/media/either-way/2i/spirals.png">
+        <img class="frame" src="/media/either-way/2i/flying.png">
+        <span id="skyline" class="text">When the air is thicker they can fly through the city silently.</span>
+        <span id="spirals" class="text">Amusing only themselves&mdash;</span>
+        <span id="spirals-2" class="text">forming care-free zig-zags,</span>
+        <span id="spirals-3" class="text">now spirals.</span>
+        <span id="flying" class="text">One gives the signal and they fly in rectangles.</span>
+    </div>
+    <div class="page">
+        <img class="frame f2" src="/media/either-way/2ii/fearful.png">
+        <img id="iibl" class="frame" src="/media/either-way/2ii/mailbox.png">
+        <img class="frame" src="/media/either-way/2ii/corner.png">
+        <span id="fearful" class="text">On edge, we give them glances of fear and expectation.</span>
+        <span id="fearful-2" class="text">And the birds, sensing this tension, decide they might now like sitting still more than moving.</span>
+        <span id="mailbox" class="text">One by two they break off from the pack,</span>
+        <span id="mailbox-2" class="text">landing on post boxes...</span>
+        <span id="corner" class="text">the traffic poles near busy intersections...</span>
+        <span id="corner-2" class="text">anywhere they might catch a good show.</span>
+    </div>
+    <div class="page">
+        <img class="frame f2" src="/media/either-way/2iii/power-lines.png">
+        <img class="frame f2" src="/media/either-way/2iii/street-ledge.png">
+        <span id="power-lines" class="text">Time passes.</span>
+        <span id="power-lines-2" class="text">And still, the birds are unsatisfied.</span>
+        <span id="power-lines-3" class="text">But they say nothing aloud.</span>
+        <span id="street-ledge" class="text">Their anticipation not yet worth mentioning&mdash;</span>
+        <span id="street-ledge-2" class="text">this they know instinctively.</span>
+    </div>
+    <h3>1 of 7</h3>
+    <br><br><br><br><br>
+    <div class="page">
+        <img class="frame f2" src="/media/either-way/1ia/alarm-shower.png">
+        <img class="frame" src="/media/either-way/1ia/walking.png">
+        <img class="frame" src="/media/either-way/1ia/shoes.png">
+        <span id="alarm" class="text">Never rub</span>
+        <span id="alarm-2" class="text">my hands under seat cushions,</span>
+        <span id="shower" class="text">never step in gum.</span>
+        <span id="walking" class="text">Always check my shoes...</span>
+        <span id="shoes" class="text">to confirm that they are still tied.</span>
+    </div>
+    <div class="page">
+        <img id="ibl" class="frame" src="/media/either-way/1ib/crash.png">
+        <img class="frame" src="/media/either-way/1ib/face.png">
+        <img class="frame" src="/media/either-way/1ib/blush.png">
+        <span id="crash" class="text">But behind these minor defences, there is of course the blushing.</span>
+        <span id="face" class="text">My major flaw: that perpetual look of embarrassment...</span>
+        <span id="blush" class="text">foiling any attempts at looking stolid.</span>
+    </div>
+    <div class="page">
+        <img class="frame" src="/media/either-way/1ii/house.png">
+        <img class="frame" src="/media/either-way/1ii/birds-speak.png">
+        <img class="frame" src="/media/either-way/1ii/birds-window.png">
+        <img class="frame" src="/media/either-way/1ii/bird-eye.png">
+        <span id="house" class="text">One morning, I dream of two grackles</span>
+        <span id="house-2" class="text">perched outside my window.</span>
+        <span id="birds-speak" class="text">I hear their words but not their conversation.</span>
+        <span id="birds-window" class="text">They seem sinister, calculating.</span>
+        <span id="bird-eye" class="text">I oversleep, and skip breakfast</span>
+        <span id="bird-eye-2" class="text">to catch the bus to work that morning.</span>
+    </div>
+    <h3>2 of 7</h3>
+    <div class="page">
+        <img class="frame" src="/media/either-way/3i/bus-out.png">
+        <img class="frame" src="/media/either-way/3i/bus-crowded.png">
+        <img class="frame f2" src="/media/either-way/3i/bus-scatter.png">
+        <span id="bus-out" class="text">Work was uneventful, but I ignored the dream until I was headed home.</span>
+        <span id="what-was" class="text">What was it they were saying about me?</span>
+        <span id="scatter-1" class="text">They looked unusually intelligent</span>
+        <span id="scatter-2" class="text">&mdash;like they knew something I didn't.</span>
+    </div>
+    <div class="page">
+        <img class="frame" src="/media/either-way/3ii/bus-leave.png">
+        <img class="frame" src="/media/either-way/3ii/ghost.png">
+        <img class="frame" src="/media/either-way/3ii/flinch.png">
+        <img class="frame" src="/media/either-way/3ii/bird-celebrate.png">
+        <span id="suffocating-1" class="text">The bus feels suffocating,</span>
+        <span id="suffocating-2" class="text">and I get off planning to catch the next one.</span>
+        <span id="uneasy-1" class="text">But even at the bus stop I feel uneasy...</span>
+        <span id="uneasy-2" class="text">like there's someone standing close behind me.</span>
+        <span id="flinch" class="text">The idea alone repulses me, and my entire body flinches.</span>
+        <span id="celebrate" class="text">The grackles near me shriek as the blood fills my face.</span>
+    </div>
+    <div class="page">
+        <img class="frame f2" src="/media/either-way/3iii/birds-taunt.png">
+        <img class="frame" src="/media/either-way/3iii/edgy.png">
+        <img class="frame" src="/media/either-way/3iii/birds-shriek.png">
+        <span id="chirps-1" class="text">chirps the second to the first.</span>
+        <span id="chirps-2" class="text">the first returns.</span>
+        <span id="dots-1" class="text">Still gripping the thighs of my pants, I wish I could be less affected</span>
+        <span id="trans-1" class="text">&mdash;more translucent...</span>
+        <span id="trans-2" class="text">like a ghost.</span>
+    </div>
+    <h3>3 of 7</h3>
+    <br><br><br><br><br>
+    <div class="page">
+        <img class="frame 2f" style="float: right;" src="/media/either-way/4i/hanging.png">
+        <img class="frame" src="/media/either-way/4i/rope.png">
+        <img class="frame" src="/media/either-way/4i/collar.png">
+        <span id="rope-1" class="text">Instead:</span>
+        <span id="rope-2" class="text">the red bandana floating on my skin.</span>
+        <span id="collar-1" class="text">Tugging at my collar, wondering</span>
+        <span id="collar-2" class="text">Why in the world am I here?</span>
+        <span id="collar-3" class="text">and When can I go home?</span>
+        <span id="upside-1" class="text">Upside down, hair not obeying my meticulous side part.</span>
+        <span id="upside-2" class="text">Hands in my pockets trying to look casual.</span>
+        <span id="upside-3" class="text">But the blood in my cheeks gives me away.</span>
+    </div>
+    <div class="page">
+        <img class="frame f4" src="/media/either-way/4ii/birds-judge.png">
+        <span id="blood-1" class="text">Harold says to his left flank, a bird named Stu.</span>
+        <span id="blood-2" class="text">Stu replies.</span>
+    </div>
+    <div class="page">
+        <img class="frame" src="/media/either-way/4iii/stage.png">
+        <img class="frame" src="/media/either-way/4iii/story.png">
+        <img class="frame" style="clear:both;" src="/media/either-way/4iii/sleep.png">
+        <img class="frame" src="/media/either-way/4iii/down.png">
+        <span id="stage" class="text">Either way, I think, I'd never asked for an audience.</span>
+        <span id="story" class="text">I'd never been the type to tell a story you didn't ask to hear.</span>
+        <span id="sleep-1" class="text">Maybe it's unavoidable that I feel like this.</span>
+        <span id="sleep-2" class="text">Maybe there's nothing I can do.</span>
+        <span id="down-1" class="text">All the same,</span>
+        <span id="down-2" class="text">I think, if someone could just let me down...</span>
+    </div>
+    <h3>4 of 7</h3>
+    <h3>More parts soon...</h3>
+    <a href="https://twitter.com/jehosafet" target="_blank">@jehosafet</a>
+</div>
+
+<script type="text/javascript">
+    var $alarm = $('#alarm').hide();
+    var $alarm2 = $('#alarm-2').hide();
+    var $shower = $('#shower').hide();
+    $alarm.show().arctext({radius: 130});
+    $alarm2.show().arctext({radius: 700});
+    $shower.show().arctext({radius: 150, dir: -1});
+</script>

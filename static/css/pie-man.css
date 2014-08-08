@@ -1,0 +1,30 @@
+#title-frame {
+    margin-left: 10px;
+    overflow: hidden;
+}
+#title-frame img {
+    float: left;
+    width: 400px;
+}
+#title-frame span {
+    // width: 500px;
+    margin-top: 30px;
+    margin-left: 15px;
+    float: left;
+    // clear: both;
+}
+#frames {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#frames #border {
+    width: 500px;
+    float: left;
+    border-bottom: 1px solid black;
+}
+#frames img {
+    float: left;
+    margin: 20px;
+    width: 220px;
+    height: 220px;
+}

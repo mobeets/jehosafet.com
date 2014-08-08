@@ -1,0 +1,117 @@
+#inner-wrapper {
+    margin-top: 25px;
+    margin-right: 20px;
+    line-height: 160%;
+}
+h1 {
+    /*line-height: 140%;*/
+}
+.comic-panel {
+    width: 400px;
+    clear: both;
+}
+.comic-panel-border {
+    width: 500px;
+    clear: both;
+    border-bottom: 1px dotted black;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+    border-top: 1px dotted black;
+}
+.comic-panel-border-2 {
+    width: 450px;
+    clear: both;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#contact {
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 15px;
+    clear: both;
+}
+
+#els-filter {
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 15px;
+    list-style: none;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 20px;
+}
+#els-filter li {
+    text-transform: uppercase;
+    text-decoration: none;
+    border-right: 1px solid black;
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+#els-filter li:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+#els-filter li.current, #els-filter li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+#els-filter li.current {
+    font-weight: bold;
+}
+#els-items {
+    padding-top: 20px;
+}
+
+.icon-set {
+    float: left;
+    position: relative;
+    height: 170px;
+    width: 120px;
+    /*padding-top: 15px;*/
+    padding-bottom: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.icon-set a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    z-index: 10;
+    background-color: white; /*workaround to make clickable in IE */
+    opacity: 0; /*workaround to make clickable in IE */
+    filter: alpha(opacity=1);
+}
+.icon-set a:hover{
+    opacity: 0.5;
+    text-decoration: underline;
+}
+.icon-img {
+    position: absolute;
+    /*opacity: 0.6;
+    filter: alpha(opacity=60); // For IE8 and earlier */
+    width: 120px;
+    height: 120px;
+}
+.icon-description {
+    font-family: 'Inconsolata', sans-serif;
+    position: absolute;
+    font-size: 95%;
+    text-align: center;
+    top: 125px;
+    width: 120px;
+    height: 15px;
+}
+.icon-img-select {
+    border: 1px solid black;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+    opacity: 1;
+}
+.icon-desc-select {
+    text-decoration: underline;
+}

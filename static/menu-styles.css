@@ -1,0 +1,59 @@
+
+#menu {
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 15px;
+    padding-left: 10px;
+    float: left;
+    width: 150px;
+}
+#menu ul {
+    text-transform: uppercase;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu li a {
+    /*padding-left: 15px;*/
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    height: 20px;
+}
+#menu li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+#menu li a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+#escapepad {
+    font-weight: bold;
+}
+#escapepad:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+#contacts {
+    width: 130px;
+    height: 100px;
+    /*visibility: hidden;*/
+}
+.contact-icon-set {
+    float: left;
+    position: relative;
+    padding-top: 3px;
+    padding-right: 3px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.contact-icon-set:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.contact-icon-img {
+    width: 25px;
+    height: 25px;
+}
