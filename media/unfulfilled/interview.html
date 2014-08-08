@@ -1,14 +1,11 @@
-<%inherit file="/base.html"/>
-<%block name="header">
-    <link rel=StyleSheet href="/static/interview.css" type="text/css"/>
-</%block>
-
+<link rel=StyleSheet href="/${mediadir}/interview.css" type="text/css"/>
 <div id="interview">
+    <a id="top"></a>
     <div id="interview_name">
        <a href="/unfulfilled">${title}</a> - ${subject}
     </div>
-    % if drawing:
-        <img id="drawing" src="${drawing}"/>
+    % if photo:
+        <img id="drawing" src="/${mediadir}/${photo}"/>
     % endif
     <div id="nut_graph">
         % for x in intro:
@@ -40,7 +37,9 @@
         </table>
     </div>
     <hr>
+
     <div id="end_graph">
         ${outro}
     </div>
+    [<a href="#top">back to top</a>]
 </div>

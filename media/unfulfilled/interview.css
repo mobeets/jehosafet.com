@@ -1,8 +1,7 @@
 #interview {
-    font-family:"Times New Roman",Georgia,Serif;
+    font-family: "Times New Roman",Georgia,Serif;
     font-size: 18px;
     line-height: 1.5em;
-    width: 80%;
 }
 #interview_name {
     font-size: 170%;
@@ -12,9 +11,7 @@
     padding-bottom: 20px;
 }
 #drawing {
-    width: 50%;
-    /*float: left;*/
-    /*padding: 0px 5px 0px 0px;*/
+    width: 300px;
 }
 #nut_graph {
     font-style: italic;

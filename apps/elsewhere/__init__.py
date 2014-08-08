@@ -16,11 +16,14 @@ class Root(object):
         self.items = sorted(items, key=lambda item: parser.parse(item['date']), reverse=True)
         self.categs = set([x['categ'] for x in self.items])
 
+    def visible_items(self):
+        return [item for item in self.items if item['categ'] not in ['hidden']]
+
     @cherrypy.expose
     def index(self):
         title = TITLE
         tmp = lookup.get_template('elsewhere.html')
-        return tmp.render(title=title, full_icon_url=self.full_icon_url, icon_key='jehosafet', contact=self.contact_msg, categs=self.categs, items=self.items)
+        return tmp.render(title=title, full_icon_url=self.full_icon_url, icon_key='jehosafet', contact=self.contact_msg, categs=self.categs, items=self.visible_items())
 
     @cherrypy.expose
     def item(self, key):

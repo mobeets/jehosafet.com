@@ -4,25 +4,13 @@ import cherrypy
 from mako.lookup import TemplateLookup
 lookup = TemplateLookup(directories=['templates'])
 
-from conf import conf
-from apps import elsewhere, unfulfilled
+import conf
+from apps import elsewhere
 
-CONTACT = 'Contact me <a href="https://twitter.com/jehosafet" target="_blank">@jehosafet</a>.'
 # FULL_ICON_URL = '0.0.0.0:5000/static/elsewhere-icons'
 # FULL_ICON_URL = 'http://thu-jehosafet-staging.herokuapp.com/static/elsewhere-icons'
 FULL_ICON_URL = 'http://www.jehosafet.com/static/elsewhere-icons'
-
-"""
-NOTE: Currently, things go in templates/ if they need to add their own .js or .css.
-If they don't need those things, they go in media/
-
-    However, this is silly. All media/*.html should also be in templates/
-
-    Then, things like cookies, list_2013_misc, and nfl_kickoffs don't need to be rendered below...
-        they can be rendered by elsewhere.
-
-"""
-
+CONTACT = 'Contact me <a href="https://twitter.com/jehosafet" target="_blank">@jehosafet</a>.'
 HEROKU_URL = lambda key: "http://{0}.herokuapp.com".format(key)
 
 class Root(object):
@@ -50,6 +38,10 @@ class Root(object):
     @cherrypy.expose
     def morse_news(self, *data):
         raise cherrypy.HTTPRedirect(HEROKU_URL("morse-news"))
+
+    @cherrypy.expose
+    def unfulfilled(self, *tmp):
+        return cherrypy.tree.apps['/elsewhere'].root.item('unfulfilled')
 
     @cherrypy.expose
     def colophon(self, *data):
@@ -83,17 +75,10 @@ class Root(object):
  
 def main():
     cherrypy.config.update(conf.settings)
-
     root_app = cherrypy.tree.mount(Root(), '/', conf.root_settings)
-        
     elsewhere_app = elsewhere.main(conf.elsewhere_settings, CONTACT, FULL_ICON_URL)
     cherrypy.tree.mount(elsewhere_app, '/elsewhere', {})
-
-    unfulfilled_app = unfulfilled.main(conf.unfulfilled_settings, FULL_ICON_URL)
-    cherrypy.tree.mount(unfulfilled_app, '/unfulfilled', {})
-
     root_app.merge(conf.settings)
-
     if hasattr(cherrypy.engine, "signal_handler"):
         cherrypy.engine.signal_handler.subscribe()
     if hasattr(cherrypy.engine, "console_control_handler"):
