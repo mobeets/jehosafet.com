@@ -1,11 +1,10 @@
 import os.path
- 
 import cherrypy
 from mako.lookup import TemplateLookup
 lookup = TemplateLookup(directories=['templates'])
 
 import conf
-from apps import elsewhere
+import elsewhere
 
 # FULL_ICON_URL = '0.0.0.0:5000/static/elsewhere-icons'
 # FULL_ICON_URL = 'http://thu-jehosafet-staging.herokuapp.com/static/elsewhere-icons'
